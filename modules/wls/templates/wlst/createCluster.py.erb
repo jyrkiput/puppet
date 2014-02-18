@@ -39,6 +39,6 @@ try:
     save()
     activate()          
 except:
-    print "Unexpected error:", sys.exc_info()[0]
+    print "Unexpected error:", ", ".join([str(p) for p in sys.exc_info()])
     undo('true','y')
     stopEdit('y')
