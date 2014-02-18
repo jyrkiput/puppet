@@ -67,9 +67,13 @@ try:
     save()
     activate()          
 
-    createBootPropertiesFile(DOMAIN_PATH+'/servers/'+wlsServerName+'/security','boot.properties',wlsUser,password)
 
 except:
     print "Unexpected error:", ", ".join([str(p) for p in sys.exc_info()])
     undo('true','y')
     stopEdit('y')
+
+try:
+    createBootPropertiesFile(DOMAIN_PATH+'/servers/'+wlsServerName+'/security','boot.properties',wlsUser,password)
+except:
+    print "Unexpected error:", ", ".join([str(p) for p in sys.exc_info()])
