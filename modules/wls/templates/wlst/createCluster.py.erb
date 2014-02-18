@@ -4,7 +4,9 @@ password   = '<%= @password %>'
 machine    = '<%= @address %>'  
 portNumber = '<%= @port %>'     
 
-# clusterName, clusterNodes
+migrationBasis = "consensus"
+
+# clusterName, clusterNodes, migrationBasis
 <% @params.each do |param| -%>   
 <%= param %>                    
 <% end -%>                      
@@ -28,7 +30,7 @@ try:
 
     cd('/Clusters/'+clusterName)
     cmo.setClusterMessagingMode('unicast')
-    cmo.setMigrationBasis('consensus')
+    cmo.setMigrationBasis(migrationBasis)
 
     for node in clusterNodesTargets:
       cd('/Servers/'+node)
